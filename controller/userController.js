@@ -4,8 +4,8 @@ import cloudinary from 'cloudinary';
 import { User } from "../models/userSchema.js";
 import{generateToken} from "../utils/jwtToken.js";
 export const patientRegister = catchAsyncErrors(async (req, res, next) => {
-  const { firstName, lastName, email, phone, nic, dob, gender, password,role } = req.body;
-  console.log(firstName, lastName, email, phone, nic, dob, gender, password,role)
+  const { firstName, lastName, email, phone, nic, dob, gender, password } = req.body;
+ // console.log(firstName, lastName, email, phone, nic, dob, gender, password,role)
   if (
     !firstName ||
     !lastName ||
@@ -14,8 +14,7 @@ export const patientRegister = catchAsyncErrors(async (req, res, next) => {
     !nic ||
     !dob ||
     !gender ||
-    !password||
-    !role
+    !password
   ) {
     return next(new ErrorHandler("Please Fill Full Form!", 400));
   }
@@ -33,7 +32,7 @@ export const patientRegister = catchAsyncErrors(async (req, res, next) => {
     dob,
     gender,
     password,
-    role,
+    role:"Patient",
   });
   generateToken(user,"User Registered!",200,res);
 //   res.status(200).json({
