@@ -3,6 +3,9 @@ import ErrorHandler from "../middlewares/errorMiddleware.js";
 import cloudinary from 'cloudinary';
 import { User } from "../models/userSchema.js";
 import{generateToken} from "../utils/jwtToken.js";
+//new line
+import dotenv from 'dotenv'
+dotenv.config({path:'../config/config.env'})
 export const patientRegister = catchAsyncErrors(async (req, res, next) => {
   const { firstName, lastName, email, phone, nic, dob, gender, password } = req.body;
  // console.log(firstName, lastName, email, phone, nic, dob, gender, password,role)

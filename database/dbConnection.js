@@ -1,6 +1,8 @@
 import mongoose from "mongoose";
 // config({ path: "./config/config.env" });
-
+// new lines
+import dotenv from 'dotenv'
+dotenv.config({path:'../config/config.env'})
 const url = 'mongodb+srv://pandeynaveencsjmu2020:2C8WrsyU0qg0d03k@cluster0.bwnsaw2.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
 // const url ="mongodb+srv://pandeynaveencsjmu2020:2C8WrsyU0qg0d03k@cluster0.bwnsaw2.mongodb.net/hospital";
 // console.log(url);
