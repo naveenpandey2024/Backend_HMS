@@ -109,48 +109,7 @@ export const patientRegister = catchAsyncErrors(async (req, res, next) => {
           admin,
         });
       });
-      export const getAllDoctors = catchAsyncErrors(async (req, res, next) => {
-        const doctors = await User.find({ role: "Doctor" });
-        res.status(200).json({
-          success: true,
-          doctors,
-        });
-      });
-      export const getUserDetails = catchAsyncErrors(async (req, res, next) => {
-        const user = req.user;
-        res.status(200).json({
-          success: true,
-          user,
-        });
-      });
-      export const logoutAdmin = catchAsyncErrors(async (req, res, next) => {
-        res
-          .status(201)
-          .cookie("adminToken", "", {
-            httpOnly: true,
-            expires: new Date(Date.now()),
-            secure:true,
-            sameSite:"None"
-          })
-          .json({
-            success: true,
-            message: "Admin Logged Out Successfully.",
-          });
-      });
-      export const logoutPatient = catchAsyncErrors(async (req, res, next) => {
-        res
-          .status(201)
-          .cookie("patientToken", "", {
-            httpOnly: true,
-            expires: new Date(Date.now()),
-            secure:true,
-            sameSite:"None"
-          })
-          .json({
-            success: true,
-            message: "Patient Logged Out Successfully.",
-          });
-      });
+
       export const addNewDoctor = catchAsyncErrors(async (req, res, next) => {
         if (!req.files || Object.keys(req.files).length === 0) {
           return next(new ErrorHandler("Doctor Avatar Required!", 400));
@@ -225,3 +184,47 @@ export const patientRegister = catchAsyncErrors(async (req, res, next) => {
           doctor,
         });
       })
+      
+      export const getAllDoctors = catchAsyncErrors(async (req, res, next) => {
+        const doctors = await User.find({ role: "Doctor" });
+        res.status(200).json({
+          success: true,
+          doctors,
+        });
+      });
+      export const getUserDetails = catchAsyncErrors(async (req, res, next) => {
+        const user = req.user;
+        res.status(200).json({
+          success: true,
+          user,
+        });
+      });
+      export const logoutAdmin = catchAsyncErrors(async (req, res, next) => {
+        res
+          .status(201)
+          .cookie("adminToken", "", {
+            httpOnly: true,
+            expires: new Date(Date.now()),
+            secure:true,
+            sameSite:"None"
+          })
+          .json({
+            success: true,
+            message: "Admin Logged Out Successfully.",
+          });
+      });
+      export const logoutPatient = catchAsyncErrors(async (req, res, next) => {
+        res
+          .status(201)
+          .cookie("patientToken", "", {
+            httpOnly: true,
+            expires: new Date(Date.now()),
+            secure:true,
+            sameSite:"None"
+          })
+          .json({
+            success: true,
+            message: "Patient Logged Out Successfully.",
+          });
+      });
+     
