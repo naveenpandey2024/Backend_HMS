@@ -14,7 +14,7 @@ dbConnection();
 
 const corsOptions = {
   // origin: ['http://localhost:5173','http://localhost:5174'], // Allow requests from this origin
-   origin: ['https://hms-frontend-de3n.onrender.com','https://hms-dashboard.onrender.com'],
+   //origin: ['https://hms-frontend-de3n.onrender.com','https://hms-dashboard.onrender.com'],
   origin: [process.env.FRONTEND_URL,process.env.DASHBOARD_URL],
   credentials: true, // Allow sending cookies from the frontend
 }
